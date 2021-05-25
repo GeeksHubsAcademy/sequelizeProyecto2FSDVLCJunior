@@ -21,6 +21,11 @@ class Viajero {
 
     }
 
+    async deletePassenger(id){
+
+        return Pasajero.destroy({where: {id: id}});
+    }
+
 }
 
 let pasajeroController = new Viajero();

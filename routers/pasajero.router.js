@@ -46,6 +46,16 @@ router.post('/', async (req, res) => {
 // router.update();
 
 
-// router.delete();
+router.delete('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        res.json(await pasajeroController.deletePassenger(id));
+
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+});
 
 module.exports = router;
