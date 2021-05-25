@@ -8,6 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      naveId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Naves',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       nombre: {
         type: Sequelize.STRING
       },
