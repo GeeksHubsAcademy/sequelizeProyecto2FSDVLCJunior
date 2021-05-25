@@ -43,7 +43,17 @@ router.post('/', async (req, res) => {
 });
 
 
-// router.update();
+router.put('/', async (req, res) => {
+    try {
+        const cuerpoDeDatos = req.body;
+        res.json(await pasajeroController.modifyPassenger(cuerpoDeDatos));
+
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+});
 
 
 router.delete('/:id', async (req, res) => {

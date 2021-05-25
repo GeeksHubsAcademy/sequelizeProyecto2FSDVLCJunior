@@ -21,6 +21,15 @@ class Viajero {
 
     }
 
+    async modifyPassenger(cuerpoDeDatos){
+        return Pasajero.update(
+            //Datos que cambiamos..
+            {edad: cuerpoDeDatos.edad, especialidad: cuerpoDeDatos.especialidad},
+            //Donde..
+            {where: {id: cuerpoDeDatos.id}}
+        )
+    }
+
     async deletePassenger(id){
 
         return Pasajero.destroy({where: {id: id}});
