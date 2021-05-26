@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
         let token = await loginController.validate(nombreCheck,passwordCheck);
         let pasajero = await pasajeroController.namePassenger(nombreCheck);
         res.status(200).json({token,pasajero});
-    }catch (err) {let 
+    }catch (err) { 
         return res.status(500).json({
             message: err.message
         })
