@@ -10,6 +10,12 @@ class Viajero {
 
     }
 
+    async namePassenger(nombre){
+        return Pasajero.findOne({
+            where: {nombre}
+        })
+    }
+
     async passengerId(id){
 
         return Pasajero.findByPk(id);
