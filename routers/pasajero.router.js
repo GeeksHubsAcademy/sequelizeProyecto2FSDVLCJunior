@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const pasajeroController = require('../controllers/pasajero.controller');
 const authenticate = require('../middleware/authenticate');
+const admin = require('../middleware/admin');
 
 
 //API CRUD PASAJERO
 
-router.get('/', async (req, res) => {
+router.get('/', admin, async (req, res) => {
     try {
 
         res.json(await pasajeroController.allPassengers());
@@ -57,7 +58,7 @@ router.put('/', authenticate, async (req, res) => {
 });
 
 
-router.delete('/:id', authenticate,  async (req, res) => {
+router.delete('/:id', admin,  async (req, res) => {
     try {
         const id = req.params.id;
         res.json(await pasajeroController.deletePassenger(id));
